@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class StoriesComponent implements OnInit {
   items: number[];
 
-  constructor() { }
+  constructor() { 
+    this.items = Array(30).fill().map((x,i)=>i);
+  }
 
   ngOnInit() {
   }
