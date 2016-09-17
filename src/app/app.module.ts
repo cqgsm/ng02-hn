@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { StoriesComponent } from './stories/stories.component';
 import { FooterComponent } from './footer/footer.component';
 import { ItemComponent } from './item/item.component';
+import { HnApiService } from './hn-api.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { ItemComponent } from './item/item.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [HnApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

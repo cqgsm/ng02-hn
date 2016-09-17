@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { HnApiService } from '../hn-api.service';
+
 @Component({
   selector: 'hn-stories',
   templateUrl: './stories.component.html',
@@ -8,11 +10,13 @@ import { Component, OnInit } from '@angular/core';
 export class StoriesComponent implements OnInit {
   items: number[];
 
-  constructor() { 
-    this.items = Array(30).fill().map((x,i)=>i);
-  }
+  constructor(private _hackerNewsAPIService: HnApiService) { }
 
   ngOnInit() {
+    this._hackerNewsAPIService.fetchStories()
+                    .subscribe(
+                      items => this.items = items,
+                      error => console.log('Error fetching stories'));
   }
 
 }
